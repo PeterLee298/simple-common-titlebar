@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="common_title">
+
+        <!-- 背景颜色 -->
+        <attr name="bgColor" format="reference" />
+        
+        <!-- 左侧图片 -->
+        <attr name="backBtnSrc" format="reference" />
+
+        <!-- 右侧图片 -->
+        <attr name="rightBtnSrc" format="reference" />
+        <attr name="rightBtn2Src" format="reference" />
+
+        <!-- 文字title -->
+        <attr name="titleText" format="reference" />
+        <attr name="titleColor" format="reference" />
+
+    </declare-styleable>
+</resources>

@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    
+    <com.ltc.lib.commontitle.CommonTitle 
+        android:id="@+id/title"
+        xmlns:title="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        title:bgColor="@color/bg_title"
+        title:titleText="@string/app_name"
+        title:backBtnSrc="@drawable/ic_title_back"
+        title:rightBtnSrc="@drawable/ic_title_info"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+</LinearLayout>
