@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.View;
 
 import com.ltc.lib.commontitle.CommonTitle;
+import com.ltc.share.ShareInfo;
+import com.ltc.share.ShareUtil;
 
 public class MainActivity extends Activity {
     
@@ -35,7 +37,12 @@ public class MainActivity extends Activity {
             @Override
             public void onLeftClicked(View parent, View v) {
                 // TODO Auto-generated method stub
-                
+            	
+            	ShareInfo shareInfo = new ShareInfo("title", "www.baidu.com",
+						"summary", "wxcontent", "wxMomentsContent", "normalText", R.drawable.ic_launcher, 
+						"https://res.wx.qq.com/open/zh_CN/htmledition/res/img/pic/app-create/pic_logo_282168b9.png");
+            	
+                ShareUtil.getInstance().showShareWindow(MainActivity.this, shareInfo);
             }
         });
     }
