@@ -2,13 +2,16 @@
 package com.ltc.commontitle.sample;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 
 import com.ltc.lib.commontitle.CommonTitle;
 import com.ltc.share.ShareInfo;
 import com.ltc.share.ShareUtil;
+import com.ltc.share.qq.QQUtil;
 
 public class MainActivity extends Activity {
     
@@ -38,13 +41,44 @@ public class MainActivity extends Activity {
             public void onLeftClicked(View parent, View v) {
                 // TODO Auto-generated method stub
             	
-            	ShareInfo shareInfo = new ShareInfo("title", "www.baidu.com",
+            	ShareInfo shareInfo = new ShareInfo("title", "http://www.baidu.com",
 						"summary", "wxcontent", "wxMomentsContent", "normalText", R.drawable.ic_launcher, 
 						"https://res.wx.qq.com/open/zh_CN/htmledition/res/img/pic/app-create/pic_logo_282168b9.png");
             	
-                ShareUtil.getInstance().showShareWindow(MainActivity.this, shareInfo);
+                ShareUtil.getInstance().showShareWindow(MainActivity.this, shareInfo, new ShareUtil.ShareListener() {
+					
+					@Override
+					public void onError(String errorMessage) {
+						// TODO Auto-generated method stub
+						Log.e("aaaaaaaaaaaaaa", "qq onError" + errorMessage);
+					}
+					
+					@Override
+					public void onComplete() {
+						// TODO Auto-generated method stub
+						Log.e("aaaaaaaaaaaaaa", "qq onComplete");
+						
+					}
+					
+					@Override
+					public void onCancel() {
+						// TODO Auto-generated method stub
+						Log.e("aaaaaaaaaaaaaa", "qq onCancel");
+						
+					}
+				});
             }
         });
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	
+    	QQUtil.getInstance().getTencentInstance(getApplicationContext()).onActivityResult(requestCode, resultCode, data);
+    	
+    	super.onActivityResult(requestCode, resultCode, data);
+    	
+    	
     }
 
     @Override
